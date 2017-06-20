@@ -41,5 +41,7 @@
 /var/package/*
 !/var/package/*.xml
 
+/var/session
+
 .idea/
 docker/
