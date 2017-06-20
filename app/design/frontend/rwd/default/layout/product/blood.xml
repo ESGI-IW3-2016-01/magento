@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <product_blood_index_index>
+        <reference name="content">
+            <block type="product_blood/blood"  name="product_blood.blood" template="product/blood.phtml" />
+        </reference>
+    </product_blood_index_index>
+</layout>

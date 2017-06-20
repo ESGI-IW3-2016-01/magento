@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Product_Blood>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Product_Blood>
+    </modules>
+</config>
