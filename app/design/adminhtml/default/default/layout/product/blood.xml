@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<layout>
+    <!-- BLOOD -->
+    <adminhtml_blood_blood_index>
+        <reference name="content">
+            <block type="product_blood/adminhtml_blood" name="product_blood_adminhtml_blood"></block>
+        </reference>
+    </adminhtml_blood_blood_index>
+    <adminhtml_blood_blood_edit>
+        <reference name="content">
+            <block type="product_blood/adminhtml_blood_edit" name="product_blood_adminhtml_blood_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="product_blood/adminhtml_blood_edit_tabs" name="product_blood_adminhtml_blood_edit_tabs">
+                <block type="product_blood/adminhtml_blood_edit_tab_form" name="product_blood_adminhtml_blood_edit_tab_form" />
+                <action method="addTab">
+                    <name>main_section</name>
+                    <block>product_blood_adminhtml_blood_edit_tab_form</block>
+                </action>
+            </block>
+        </reference>
+    </adminhtml_blood_blood_edit>
+</layout>
