@@ -20,7 +20,7 @@ class Product_Blood_Model_Resource_Blood extends Mage_Core_Model_Resource_Db_Abs
     {
 
         $slug = Mage::getModel('catalog/product_url')->formatUrlKey($object->getName());
-        if ($this->slugNotExist($slug)) {
+        if ($this->slugNotExist($slug, $object->getId())) {
             $object->setSlug($slug);
         }
 
@@ -33,13 +33,15 @@ class Product_Blood_Model_Resource_Blood extends Mage_Core_Model_Resource_Db_Abs
      * Check if slug already exist
      *
      * @param String
+     * @param Integer
      * @return Mage_Eav_Model_Attribute_Data_Boolean
      */
-    private function slugNotExist($slug) {
+    private function slugNotExist($slug, $id) {
         $adapter = $this->_getReadAdapter();
         $select  = $adapter->select()
             ->from($this->getTable('product_blood/blood'))
-            ->where('slug = ?', $slug);
+            ->where('slug = ?', $slug)
+            ->where('entity_id != ?', $id);
         if(empty($adapter->fetchCol($select))){
             return true;
         }
