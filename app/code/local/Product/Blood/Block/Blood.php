@@ -11,5 +11,14 @@ class Product_Blood_Block_Blood extends Mage_Core_Block_Template
     {
         return 'hello world !';
     }
+
+    public function getBloodProducts()
+    {
+        $blood = Mage::getModel('product_blood/blood')
+            ->getCollection()
+            ->addIsActiveFilter();
+
+        return $blood;
+    }
     
 }

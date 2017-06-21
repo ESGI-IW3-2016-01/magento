@@ -47,4 +47,17 @@ class Product_Blood_Model_Resource_Blood extends Mage_Core_Model_Resource_Db_Abs
         }
         return false;
     }
+
+    public function loadBySlug($slug, $object) {
+        $adapter = $this->_getReadAdapter();
+        $select  = $adapter->select()
+            ->from($this->getTable('product_blood/blood'))
+            ->where('slug = ?', $slug);
+        
+        $result = $adapter->fetchRow($select);
+        if (empty($result)) {
+            return false;
+        }
+        $object->setData($result);
+    }
 }

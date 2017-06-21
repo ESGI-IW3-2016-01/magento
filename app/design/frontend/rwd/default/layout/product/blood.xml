@@ -1,8 +1,35 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
     <product_blood_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>product/js/scripts.js</name>
+            </action>
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>product/css/style.css</name>
+            </action>
+        </reference>
         <reference name="content">
             <block type="product_blood/blood"  name="product_blood.blood" template="product/blood.phtml" />
         </reference>
     </product_blood_index_index>
+    <product_blood_index_view>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>product/css/view.css</name>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="product_blood/blood"  name="product_blood.blood" template="product/view.phtml" />
+        </reference>
+    </product_blood_index_view>
 </layout>

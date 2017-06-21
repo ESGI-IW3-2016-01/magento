@@ -16,4 +16,16 @@ class Product_Blood_Model_Blood extends Mage_Core_Model_Abstract
     {
         $this->_init('product_blood/blood');
     }
+
+    /**
+     * @param $slug
+     * @return $this
+     */
+    public function loadBySlug($slug)
+    {
+        $resource = $this->_getResource();
+        $resource->loadBySlug($slug, $this);
+
+        return $this;
+    }
 }

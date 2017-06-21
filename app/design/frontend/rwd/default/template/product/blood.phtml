@@ -1,3 +1,50 @@
-<?php
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-echo $this->helloWorld();
+<?php $bloodProducts = $this->getBloodProducts(); ?>
+<?php $helper = Mage::helper('product_blood'); ?>
+
+
+<div class="container">
+    <div class="well well-sm">
+        <strong>Category Title</strong>
+        <div class="btn-group">
+            <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">
+            </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span
+                    class="glyphicon glyphicon-th"></span>Grid</a>
+        </div>
+    </div>
+    <div id="products" class="row list-group">
+        <?php foreach ($bloodProducts as $blood): ?>
+            <div class="item  col-xs-4 col-lg-4">
+                <div class="thumbnail">
+                    <img class="group list-group-image" style="height: 220px;" src="<?php echo $helper->getImageUrl($blood->getImageUrl()); ?>" alt="" />
+                    <div class="caption">
+                        <h4 class="group inner list-group-item-heading">
+                            <?php echo $blood->getName() ?></h4>
+                        <p class="group inner list-group-item-text">
+                            <?php echo $blood->getDescription() ?>
+                        </p>
+                        <div class="row">
+                            <div class="col-xs-12 col-md-6">
+                                <p class="lead">
+                                    <?php echo $blood->getPrice() ?>€
+                                </p>
+                                <p>
+                                    Qty : <?php echo $blood->getQty() ?>
+                                </p>
+                            </div>
+                            <div class="col-xs-12 col-md-6">
+                                <a class="btn btn-success" href="<?php echo Mage::getBaseUrl() ?>blood/index/view/slug/<?php echo $blood->getSlug() ?>">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
