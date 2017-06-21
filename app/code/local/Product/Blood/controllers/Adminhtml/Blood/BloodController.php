@@ -79,7 +79,7 @@ class Product_Blood_Adminhtml_Blood_BloodController extends Mage_Adminhtml_Contr
 
                 if ($this->getRequest()->getParam('back')) {
                     $this->_redirect('*/*/edit', array(
-                        'id'       => $blood->getId(),
+                        'id' => $blood->getId(),
                         '_current' => true
                     ));
 
@@ -201,5 +201,33 @@ class Product_Blood_Adminhtml_Blood_BloodController extends Mage_Adminhtml_Contr
         }
 
         return $this->_redirect('*/*/index');
+    }
+
+    public function productsAction()
+    {
+        $this->_initBlood(); //if you don't have such a method then replace it with something that will get you the entity you are editing.
+        $this->loadLayout();
+        $this->getLayout()->getBlock('blood.edit.tab.product')
+            ->setBloodProducts($this->getRequest()->getPost('blood_products', null));
+        $this->renderLayout();
+    }
+
+    public function productsgridAction()
+    {
+        $this->_initBlood();
+        $this->loadLayout();
+        $this->getLayout()->getBlock('blood.edit.tab.product')
+            ->setBloodProducts($this->getRequest()->getPost('blood_products', null));
+        $this->renderLayout();
+    }
+
+    protected function _initBlood(){
+        $id = $this->getRequest()->getParam('id');
+        /** @var Product_Blood_Model_Blood $blood */
+        $blood = Mage::getModel('product_blood/blood')->load($id);
+
+        if ($blood->getId() || $id == 0) {
+            Mage::register('current_blood', $blood);
+        }
     }
 }

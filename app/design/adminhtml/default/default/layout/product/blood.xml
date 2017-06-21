@@ -13,7 +13,8 @@
         </reference>
         <reference name="left">
             <block type="product_blood/adminhtml_blood_edit_tabs" name="product_blood_adminhtml_blood_edit_tabs">
-                <block type="product_blood/adminhtml_blood_edit_tab_form" name="product_blood_adminhtml_blood_edit_tab_form" />
+                <block type="product_blood/adminhtml_blood_edit_tab_form"
+                       name="product_blood_adminhtml_blood_edit_tab_form"/>
                 <action method="addTab">
                     <name>main_section</name>
                     <block>product_blood_adminhtml_blood_edit_tab_form</block>
@@ -21,4 +22,27 @@
             </block>
         </reference>
     </adminhtml_blood_blood_edit>
+    <adminhtml_blood_blood_products>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="product_blood/adminhtml_blood_edit_tab_product" name="blood.edit.tab.product"/>
+            <block type="adminhtml/widget_grid_serializer" name="product_grid_serializer">
+                <reference name="product_grid_serializer">
+                    <action method="initSerializerBlock">
+                        <grid_block_name>blood.edit.tab.product</grid_block_name>
+                        <data_callback>getSelectedProducts</data_callback>
+                        <hidden_input_name>products</hidden_input_name>
+                        <reload_param_name>blood_products</reload_param_name>
+                    </action>
+                    <action method="addColumnInputName">
+                        <input_name>position</input_name>
+                    </action>
+                </reference>
+            </block>
+        </block>
+    </adminhtml_blood_blood_products>
+    <adminhtml_blood_blood_productsgrid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="product_blood/adminhtml_blood_edit_tab_product" name="blood.edit.tab.product"/>
+        </block>
+    </adminhtml_blood_blood_productsgrid>
 </layout>

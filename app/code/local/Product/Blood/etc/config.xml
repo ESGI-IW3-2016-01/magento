@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Product_Blood>
-            <version>0.1.0</version>
+            <version>0.2.0</version>
         </Product_Blood>
     </modules>
     <global>
@@ -27,6 +27,9 @@
                     <blood>
                         <table>product_blood_blood</table>
                     </blood>
+                    <blood_product>
+                        <table>product_blood_product</table>
+                    </blood_product>
                 </entities>
             </product_blood_resource>
         </models>
