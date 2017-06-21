@@ -72,6 +72,12 @@ class Product_Blood_Adminhtml_Blood_BloodController extends Mage_Adminhtml_Contr
 
             try {
                 $blood->addData($data);
+
+                $products = $this->getRequest()->getPost('products', -1);
+                if ($products != -1) {
+                    $blood->setProductsData(Mage::helper('adminhtml/js')->decodeGridSerializedInput($products));
+                }
+
                 $blood->save();
 
                 Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('product_blood')->__('The blood has been saved.'));
