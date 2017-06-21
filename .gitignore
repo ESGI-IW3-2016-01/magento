@@ -40,10 +40,14 @@
 !/var/.htaccess
 
 !/var/package
+!/var/cache/
+!/var/session/
+!/var/report/
+/var/cache/
+/var/session/
+/var/report/
 /var/package/*
 !/var/package/*.xml
 
-/var/session
-
-.idea/
 docker/
+.idea/
