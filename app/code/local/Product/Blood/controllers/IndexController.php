@@ -24,7 +24,16 @@ class Product_Blood_IndexController extends Mage_Core_Controller_Front_Action
             return $this->norouteAction();
         }
         
+        $associatedProducts = $product->getSelectedProductsCollection()
+            ->addAttributeToFilter('visibility', array('neq' => Mage_Catalog_Model_Product_Visibility::VISIBILITY_NOT_VISIBLE))
+            ->addAttributeToFilter('status', Mage_Catalog_Model_Product_Status::STATUS_ENABLED)
+            ->addAttributeToSelect('image')
+            ->addAttributeToSelect('price')
+            ->addAttributeToSelect('url_path')
+            ->addAttributeToSelect('name');
+
         Mage::register('product', $product);
+        Mage::register('associatedProducts', $associatedProducts);
 
         $this->getLayout()->getBlock('head')->setTitle($this->__('Blood Product Details'));
         $this->renderLayout();
