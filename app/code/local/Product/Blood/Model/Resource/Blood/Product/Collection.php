@@ -8,7 +8,7 @@ class Product_Blood_Model_Resource_Blood_Product_Collection extends Mage_Catalog
     {
         if (!$this->_joinedFields) {
             $this->getSelect()->join(
-                array('related' => $this->getTable('blood/blood_product')),
+                array('related' => $this->getTable('product_blood/blood_product')),
                 'related.product_id = e.entity_id',
                 array('position')
             );

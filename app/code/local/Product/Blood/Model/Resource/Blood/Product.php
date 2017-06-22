@@ -4,7 +4,7 @@ class Product_Blood_Model_Resource_Blood_Product extends Mage_Core_Model_Resourc
 {
     protected function _construct()
     {
-        $this->_init('blood/blood_product', 'rel_id');
+        $this->_init('product_blood/blood_product', 'rel_id');
     }
 
     public function saveBloodRelation($blood, $data)

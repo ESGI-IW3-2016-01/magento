@@ -37,7 +37,7 @@ class Product_Blood_Model_Blood extends Mage_Core_Model_Abstract
     public function getProductInstance()
     {
         if (!$this->_productInstance) {
-            $this->_productInstance = Mage::getSingleton('blood/blood_product');
+            $this->_productInstance = Mage::getSingleton('product_blood/blood_product');
         }
         return $this->_productInstance;
     }
