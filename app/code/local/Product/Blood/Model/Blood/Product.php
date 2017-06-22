@@ -11,7 +11,7 @@ class Product_Blood_Model_Blood_Product extends Mage_Core_Model_Abstract
     {
         $data = $blood->getProductsData();
         if (!is_null($data)) {
-            $this->_getResource()->saveBloodRelation($$blood, $data);
+            $this->_getResource()->saveBloodRelation($blood, $data);
         }
         return $this;
     }
