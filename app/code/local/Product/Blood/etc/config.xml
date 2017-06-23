@@ -71,6 +71,16 @@
                 </product_blood>
             </updates>
         </layout>
+        <events>
+            <page_block_html_topmenu_gethtml_before>
+                <observers>
+                    <product_blood>
+                        <class>product_blood/observer</class>
+                        <method>addToTopmenu</method>
+                    </product_blood>
+                </observers>
+            </page_block_html_topmenu_gethtml_before>
+        </events>
     </frontend>
     <admin>
         <routers>
